@@ -1,0 +1,30 @@
+── chart ─┐
+          ├─ .gitattributes
+          ├─ .gitignore
+          ├─ Cargo.lock
+          ├─ Cargo.toml
+          ├─ LICENSE
+          ├─ README.md
+          ├─ rustfmt.toml
+          ├─ assets ─┐
+          │          └─ README.md
+          ├─ docs ─┐
+          │        ├─ README.md
+          │        └─ tree.txt
+          └─ src ─┐
+                  ├─ lib.rs
+                  ├─ README.md
+                  ├─ rules.txt
+                  ├─ logic ─┐
+                  │         ├─ code_flow.rs
+                  │         ├─ file_tree.rs
+                  │         └─ mod.rs
+                  └─ utils ─┐
+                            ├─ mod.rs
+                            ├─ macros ─┐
+                            │          ├─ group.rs
+                            │          ├─ import.rs
+                            │          └─ mod.rs
+                            └─ structs ─┐
+                                        ├─ data_struct.rs
+                                        └─ mod.rs

@@ -1,0 +1,65 @@
+[Rust Project rules]
+1. One definition of a custom type per .rs file!
+         This will help the project to scale, while keeping everything easy to access, with the same format
+
+2. Implimentations of custom types must be in the same .rs file as the definition of the custom type!
+         This helps keeping all the code together and keeping the file structure consistent
+
+3. Every custom type shall have new or from function, and a impliment the default trait!
+         This makes it more consistent, and with the same functions
+
+4. Only functions refferencing to self should be in impl blocks!
+         This makes it more consistent, and holding a kind of "need to know" basis
+
+5. Any public functions must be in a seperate impl block than private functions!
+         This makes it more consistent, and simple to navigate
+
+6. Functions taking in raw data without refferencing to self, must be in a module!
+         This makes the structure better, and simple to navigate
+
+7. All macros from the macros.rs file in this project should be included in every project!
+
+8. All mod.rs files should include files like this:
+    	crate::import!(pub file > pub [*]);
+	crate::imports!{
+    		pub map_copy > pub [mem, new_file, test],
+    		pub map > pub [test1, test2]
+	}
+
+9. Every impl block, custom type or function shall have a comment structured like this:
+/// # Title
+/// Adds x and y
+///
+/// # Parameters
+/// - 'x': First value
+/// - 'y': Second value
+///
+/// # Returns
+/// x + y
+///
+/// ```
+/// This is a code example
+/// let example = "Code example";
+/// ```
+
+[Rust Ownership rules]
+Rule 1: Each value in Rust has a variable that's called its "owner".
+Rule 2: There can only be one owner at a time.
+Rule 3: When the owner goes out of scope, the value will be dropped.
+
+[Rust Borrowing rules]
+Rule 1: At any given time, you can have either one mutable reference or any number of immutable references.
+             Rust allows either one mutable reference for modifying data or multiple immutable references
+             for safe, concurrent reading, but never both simultaneously to ensure data consistency and
+             prevent race conditions.
+
+Rule 2: References must always be valid.
+             No refferences may refferende dropped owners
+
+Rule 3: No mutable refference is allowed while there's an active immutable reference.
+             Rust disallows having a mutable reference while there's an active immutable reference
+             to ensure that data referenced immutably remains unchanged and predictable, thereby preventing
+             data races and inconsistencies.
+
+Rule 4: Multiple mutable references are not allowed simultaneously:
+             Use scopes to divide the mutable refferences
